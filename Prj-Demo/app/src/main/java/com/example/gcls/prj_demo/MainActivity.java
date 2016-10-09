@@ -34,33 +34,37 @@ import java.net.Socket;
 public class MainActivity extends AppCompatActivity {
     public Button ButtonBtConnect;
     public Intent IntentBtConnect;
+    public static BluetoothSocket CarSocket;
+    public BlueTooth blueTooth;
 
-    private ServiceConnection conn = new ServiceConnection() {
+//    private ServiceConnection conn = new ServiceConnection() {
+//
+//        @Override
+//        public void onServiceDisconnected(ComponentName name) {
+//            System.out.println("------Service DisConnected-------");
+//        }
+//
+//        @Override
+//        public void onServiceConnected(ComponentName name, IBinder service) {
+//            System.out.println("------Service Connected-------");
+//        }
+//    };
 
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            System.out.println("------Service DisConnected-------");
-        }
 
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            System.out.println("------Service Connected-------");
-        }
-    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        blueTooth = new BlueTooth(this);
+        blueTooth.start();
         ButtonBtConnect = (Button) findViewById(R.id.btnBtConnect);
-        IntentBtConnect = new Intent(MainActivity.this,Bluetooth.class);
         ButtonBtConnect.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public  void onClick(View v)
             {
-                startService(IntentBtConnect);
-                bindService(IntentBtConnect, conn , Context.BIND_AUTO_CREATE);
+
             }
         }
         );

@@ -1,6 +1,7 @@
 package com.example.gcls.prj_demo;
 
 import android.content.Context;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Activity;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     public Intent IntentBtConnect;
     public static BluetoothSocket CarSocket;
     public BlueTooth blueTooth;
+    public Button forwardBt;
+
 
 //    private ServiceConnection conn = new ServiceConnection() {
 //
@@ -64,12 +67,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public  void onClick(View v)
             {
-
             }
         }
         );
-
-
+        forwardBt = (Button)findViewById(R.id.forward);
+        forwardBt.setOnClickListener(new Button.OnClickListener(){ // 点击forward按钮，蓝牙传输信息
+           public  void onClick(View v){
+               blueTooth.sendInformation("forward");
+           }
+        });
 
     }
+
 }

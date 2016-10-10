@@ -27,26 +27,33 @@ public class BlueTooth extends Thread {
     private MainActivity main;
     private UUID uuid;
     //private Button goButton;
-    private Button refreshButton;
+    public Button refreshButton;
+   // private boolean flagforrefresh=false;
 
     public BlueTooth(MainActivity main) {
         this.main = main;
 
-        Log.e("", "Refreshing");
-        //bluetoothList = (LinearLayout)main.findViewById(R.id.BluetoothList);
+       // Log.e("", "Refreshing");
+        bluetoothList = (LinearLayout)main.findViewById(R.id.BluetoothList);
         bluetoothText = (TextView) main.findViewById(R.id.info);
-
+        //bluetoothText.setText("blueText");
         //refreshButton = (Button)main.findViewById(R.id.refresh);
         refreshButton = new Button(main);
+        refreshButton.setText("搜索已有蓝牙设备");
+        bluetoothList.addView(refreshButton);
         Testtext = (TextView)main.findViewById(R.id.testText);
         Testtext.setText("success!");
-        refreshButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.e("", "Refreshing");
+        Testtext.setText("step2");
+
+        refreshButton.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View v){
                 refreshBluetoothDevice();
             }
         });
+    }
+
+    public void show(){
+        Testtext.setText("Ido");
     }
 
 
@@ -57,6 +64,7 @@ public class BlueTooth extends Thread {
     }
 
     public void refreshBluetoothDevice() {
+        Testtext.setText("step5");
         if (adapter==null) adapter = BluetoothAdapter.getDefaultAdapter();//获取默认蓝牙适配器
         if (adapter != null) {		//若获取设备成功
 
@@ -66,10 +74,11 @@ public class BlueTooth extends Thread {
                 main.startActivity(enableBtIntent);
                 return;
             }
-
             bluetoothList.removeAllViews();				//清空配对设备列表
+            bluetoothList.addView(refreshButton);
             bluetoothText.setText(" 正在搜索周围的蓝牙设备");
-            for (BluetoothDevice device : adapter.getBondedDevices()) {	//按配对设备循环操作，为每个设备创建一个按钮，当按钮被按下时，创建相应对象执行操作
+            for (BluetoothDevice device : adapter.getBondedDevices()) {    //按配对设备循环操作，为每个设备创建一个按钮，当按钮被按下时，创建相应对象执行操作
+                Testtext.setText("create button");
                 Button temp = new Button(main);
                 temp.setText(device.getName());
                 temp.setTextColor(Color.BLACK);
@@ -77,7 +86,6 @@ public class BlueTooth extends Thread {
                 bluetoothList.addView(temp);
                 temp.setOnClickListener(new BluetoothDeviceListener(device));
             }
-
         } else {
             bluetoothText.setText(" 未能找到蓝牙设备！");
         }
@@ -96,13 +104,19 @@ public class BlueTooth extends Thread {
                 if (CarSocket != null)		//如果已经连接，则关闭连接通道
                     CarSocket.close();
                 CarSocketSuccess=false;
-                uuid = device.getUuids()[0].getUuid();
+
+                uuid = device.getUuids()[1].getUuid();//getUuids()返回已配备的设备UUID序列（很多个设备的UUID数组）
                 CarSocket = device.createRfcommSocketToServiceRecord(uuid);//通过uuid识别连接
+                bluetoothText.setText(" 连接"+device.getName());
                 adapter.cancelDiscovery();  //取消蓝牙设备扫描
+                //bluetoothText.setText(device.getName());
                 CarSocket.connect();		//进行连接
+                //bluetoothText.setText(device.getName());
                 CarSocketSuccess=true;
+
                 bluetoothText.setText(" 连接成功：" + device.getName());
                 bluetoothList.removeAllViews();		//清空配对设备列表
+                bluetoothList.addView(refreshButton);
                 return;
             } catch (IOException e) {		//异常
                 e.printStackTrace();
@@ -115,15 +129,17 @@ public class BlueTooth extends Thread {
 
     public void sendInformation(String information) {
         if (CarSocket == null) {
-            //bluetoothText.setText(" 连接失败");
+            bluetoothText.setText(" 连接失败");
             return;
         }
         try {
             //发送信息
             CarSocket.getOutputStream().write(String.valueOf(information).getBytes());
-            CarSocket.getOutputStream().flush();                //刷新输出缓冲区
+            CarSocket.getOutputStream().flush(); //刷新输出缓冲区
+            return;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        bluetoothText.setText(" 发送信息失败");
     }
 }

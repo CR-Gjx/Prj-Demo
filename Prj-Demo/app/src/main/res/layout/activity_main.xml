@@ -11,7 +11,7 @@
     tools:context="com.example.gcls.prj_demo.MainActivity">
 
     <TextView
-        android:id="@+id/text1"
+        android:id="@+id/info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text = "3C project!"
-        android:layout_below="@id/text1"
+        android:layout_below="@id/info"
         />
 
     <Button
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:id="@+id/btnBtConnect"
-        android:layout_below="@+id/text2"
+        android:layout_below="@id/text2"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -46,6 +46,7 @@
         android:id="@+id/testText" />
 
     <LinearLayout
+        android:id="@+id/BluetoothList"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -54,4 +55,14 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/btnBtConnect"
         android:layout_toEndOf="@+id/btnBtConnect"></LinearLayout>
+
+    <Button
+        android:text="forward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnBtConnect"
+        android:layout_alignLeft="@+id/btnBtConnect"
+        android:layout_alignStart="@+id/btnBtConnect"
+        android:layout_marginTop="82dp"
+        android:id="@+id/forward" />
 </RelativeLayout>

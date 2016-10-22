@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     public static BluetoothSocket CarSocket;
     public BlueTooth blueTooth;
     public Button forwardBt;
+    public Button backwardBt;
+    public Button leftBt;
+    public Button rightBt;
 
 
 //    private ServiceConnection conn = new ServiceConnection() {
@@ -71,12 +74,31 @@ public class MainActivity extends AppCompatActivity {
         }
         );
         forwardBt = (Button)findViewById(R.id.forward);
+        leftBt = (Button)findViewById(R.id.Left);
+        rightBt = (Button)findViewById(R.id.Right);
+        backwardBt = (Button)findViewById(R.id.Backward);
         forwardBt.setOnClickListener(new Button.OnClickListener(){ // 点击forward按钮，蓝牙传输信息
-           public  void onClick(View v){
-               blueTooth.sendInformation("forward");
-           }
+            public  void onClick(View v){
+                blueTooth.sendInformation("1");
+            }
         });
 
-    }
+        leftBt.setOnClickListener(new Button.OnClickListener(){ // 点击forward按钮，蓝牙传输信息
+            public  void onClick(View v){
+                blueTooth.sendInformation("2");
 
-}
+            }});
+
+        rightBt.setOnClickListener(new Button.OnClickListener(){ // 点击forward按钮，蓝牙传输信息
+            public  void onClick(View v){
+                blueTooth.sendInformation("3");
+
+            }});
+
+        backwardBt.setOnClickListener(new Button.OnClickListener(){ // 点击forward按钮，蓝牙传输信息
+            public  void onClick(View v){
+                blueTooth.sendInformation("4");
+
+    }});
+
+}}

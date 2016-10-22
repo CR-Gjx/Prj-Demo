@@ -105,7 +105,7 @@ public class BlueTooth extends Thread {
                     CarSocket.close();
                 CarSocketSuccess=false;
 
-                uuid = device.getUuids()[1].getUuid();//getUuids()返回已配备的设备UUID序列（很多个设备的UUID数组）
+                uuid = device.getUuids()[0].getUuid();//getUuids()返回已配备的设备UUID序列（很多个设备的UUID数组）
                 CarSocket = device.createRfcommSocketToServiceRecord(uuid);//通过uuid识别连接
                 bluetoothText.setText(" 连接"+device.getName());
                 adapter.cancelDiscovery();  //取消蓝牙设备扫描

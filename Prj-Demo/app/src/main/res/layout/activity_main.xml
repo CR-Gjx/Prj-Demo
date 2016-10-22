@@ -57,12 +57,42 @@
         android:layout_toEndOf="@+id/btnBtConnect"></LinearLayout>
 
     <Button
+        android:text="TurnRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Right"
+        android:layout_alignBottom="@+id/Left"
+        android:layout_toLeftOf="@+id/BluetoothList"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_toRightOf="@+id/forward"
+        android:layout_toEndOf="@+id/forward" />
+
+    <Button
+        android:text="Backward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Backward"
+        android:layout_below="@+id/Right"
+        android:layout_toRightOf="@+id/info"
+        android:layout_toEndOf="@+id/info" />
+
+    <Button
         android:text="forward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:id="@+id/forward"
         android:layout_below="@+id/btnBtConnect"
-        android:layout_alignLeft="@+id/btnBtConnect"
-        android:layout_alignStart="@+id/btnBtConnect"
-        android:layout_marginTop="82dp"
-        android:id="@+id/forward" />
+        android:layout_alignLeft="@+id/Backward"
+        android:layout_alignStart="@+id/Backward" />
+
+    <Button
+        android:text="TurnLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Left"
+        android:layout_below="@+id/forward"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

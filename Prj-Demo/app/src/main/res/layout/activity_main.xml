@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app=""
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -100,4 +99,16 @@
         android:layout_below="@+id/btnBtConnect"
         android:layout_toRightOf="@+id/text2"
         android:layout_toEndOf="@+id/text2" />
+
+    <Button
+        android:text="视频传输"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Backward"
+        android:layout_alignRight="@+id/Backward"
+        android:layout_alignEnd="@+id/Backward"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="25dp"
+        android:id="@+id/btnVideo" />
 </RelativeLayout>

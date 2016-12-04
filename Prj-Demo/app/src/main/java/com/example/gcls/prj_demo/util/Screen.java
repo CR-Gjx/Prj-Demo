@@ -39,7 +39,7 @@ public class Screen {
 				|| density == 0) {
 			Resources res = context.getResources();
 			DisplayMetrics metrics = res.getDisplayMetrics();
-			// TODO // - 50
+			// TODO // - 50 //
 			density = metrics.density;
 			mNotificationBarHeight = (int) (35 * density);
 			mWidth = metrics.widthPixels;// - (int)(50 * density)
@@ -58,7 +58,7 @@ public class Screen {
 			drawPaddingBottom = density * PADDING_B;
 
 			drawWidth = mWidth - drawPaddingLeft - drawPaddingRight;
-			// TODO 如果非全屏，�?��减去标题栏的高度
+			// TODO 如果非全屏，减去标题栏的高度
 			drawHeight = mHeight - drawPaddingTop - drawPaddingBottom;
 		}
 	}

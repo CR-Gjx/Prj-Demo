@@ -9,7 +9,7 @@ import android.graphics.RectF;
 import android.graphics.YuvImage;
 import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
-
+import java.io.*;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import android.hardware.Camera.Size;
@@ -51,10 +51,15 @@ public class VideoThread extends Thread {
     private Bitmap bitmap;
     private Bitmap tmpBmp;
     private byte[] byteArray;
-
+    private  Bitmap BitmapForCompress;
+    private byte[] byteForCompress;
     boolean detected;
     RectF faceRects[] = new RectF[MAX_FACES];
     int detectedFaces = 0;
+    int options = 60;
+    int jishu = 0;
+    int cishu = 0;
+
     //private String clientIP;
 
     public VideoThread(MainActivity main) {
@@ -72,9 +77,15 @@ public class VideoThread extends Thread {
         surfaceHolder = ((SurfaceView) main.findViewById(R.id.surfaceView)).getHolder();
 
         //faceRecognizer = new FaceRecognizer(null, main);
-        TestText.setText("SKDJ");
+        //TestText.setText("SKDJ");
         surfaceHolder.setKeepScreenOn(true);
         isPreview = false;
+        String an = "safj";
+//        byte b []  = an.getBytes();
+//        ByteArrayOutputStream outstream = new ByteArrayOutputStream(85);
+//        outstream.write(5);
+//        Thread th = new SendVideoThread(outstream, "sdf");
+//        th.start();
         surfaceHolder.addCallback(new SurfaceHolder.Callback() {
 
             @Override
@@ -99,7 +110,7 @@ public class VideoThread extends Thread {
     @SuppressLint("NewApi")
     private void initCamera() {
         if (!isPreview) {
-            TestText.setText("ss");
+            //TestText.setText("ss");
             camera = android.hardware.Camera.open(1);
         }
         if (camera != null && !isPreview) {
@@ -125,7 +136,7 @@ public class VideoThread extends Thread {
     }
 
     class StreamIt implements android.hardware.Camera.PreviewCallback {
-        private String ipname;
+        private String ipname = "ipname";
 
         public StreamIt(String ipname) {
             this.ipname = ipname;
@@ -135,16 +146,30 @@ public class VideoThread extends Thread {
         public void onPreviewFrame(byte[] data, android.hardware.Camera camera) {
             android.hardware.Camera.Size size = camera.getParameters().getPreviewSize();
             try {
+                jishu++;
+                cishu++;
+                System.out.println("次数："+cishu);
+                if(jishu >= 2) {
+                    YuvImage image = new YuvImage(data, ImageFormat.NV21, size.width, size.height, null);
 
-                YuvImage image = new YuvImage(data, ImageFormat.NV21, size.width, size.height, null);
+                    if (image != null) {
+                        ByteArrayOutputStream outstream = new ByteArrayOutputStream();
 
-                if (image != null) {
-                    ByteArrayOutputStream outstream = new ByteArrayOutputStream();
-
-                    image.compressToJpeg(new Rect(0, 0, size.width, size.height), 80, outstream);
-                    Thread th = new SendVideoThread(outstream, ipname);
-                    th.start();
-                    outstream.flush();
+                        image.compressToJpeg(new Rect(0, 0, size.width, size.height), 80, outstream);
+                        byteForCompress = outstream.toByteArray();
+                        BitmapForCompress = BitmapFactory.decodeByteArray(byteForCompress, 0, byteForCompress.length);
+                        while (outstream.toByteArray().length / 1024 > 60) { //循环判断如果压缩后图片是否大于100kb,大于继续压缩
+                            outstream.reset();//重置baos即清空baos
+                            BitmapForCompress.compress(Bitmap.CompressFormat.JPEG, options, outstream);//这里压缩options%，把压缩后的数据存放到baos中
+                            if(options > 10)
+                            options -= 10;//每次都减少10
+                        }
+                        options = 10;
+                        Thread th = new SendVideoThread(outstream, ipname);
+                        th.start();
+                        outstream.flush();
+                    }
+                    jishu = 0;
                 }
             } catch (Exception ex) {
                 Log.e("Sys", "Error:" + ex.getMessage());
@@ -175,7 +200,8 @@ public class VideoThread extends Thread {
             try {
 
                 //byte data[] = new byte[204800];
-                InetAddress serverAddr = InetAddress.getByName("10.189.151.255");// TCPServer.SERVERIP
+                InetAddress serverAddr = InetAddress.getByName("172.20.10.12");
+                        //"10.189.35.89");// TCPServer.SERVERIP
                 Log.d("TCP", "C: Connecting...");
 
 
@@ -186,7 +212,7 @@ public class VideoThread extends Thread {
                 //TestText.setText("sffd");
                 ByteArrayInputStream inputStream = new ByteArrayInputStream(byteArray);
                 outsocket = socket.getOutputStream();
-                TestText.setText("ddd");
+                //TestText.setText("ddd");
                 int amount, num = 0;
                 while ((amount = inputStream.read(byteBuffer)) != -1) {
                     //TestText.setText("ddd");
@@ -210,7 +236,7 @@ public class VideoThread extends Thread {
             }
             finally
             {
-                TestText.setText("fds");
+                //TestText.setText("fds");
 
 //                try {
 //                    socket.close();
@@ -221,6 +247,21 @@ public class VideoThread extends Thread {
             }
         }
 
+    }
+
+    private Bitmap compressImage(Bitmap image,int Compress,int length) {
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        image.compress(Bitmap.CompressFormat.JPEG, Compress, baos);//质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
+        int options = 100;
+        while ( baos.toByteArray().length / 1024>length) { //循环判断如果压缩后图片是否大于100kb,大于继续压缩
+            baos.reset();//重置baos即清空baos
+            image.compress(Bitmap.CompressFormat.JPEG, options, baos);//这里压缩options%，把压缩后的数据存放到baos中
+            options -= 10;//每次都减少10
+        }
+        ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());//把压缩后的数据baos存放到ByteArrayInputStream中
+        Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);//把ByteArrayInputStream数据生成图片
+        return bitmap;
     }
 }
 

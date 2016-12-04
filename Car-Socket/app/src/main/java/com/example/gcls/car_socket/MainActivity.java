@@ -15,7 +15,7 @@ import android.content.Intent;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    public String clientIP;
+    public String clientIP = "df";
     public boolean isFacing = false;
     private SurfaceView surfaceView = null;
     public VideoThread videoThread = null;

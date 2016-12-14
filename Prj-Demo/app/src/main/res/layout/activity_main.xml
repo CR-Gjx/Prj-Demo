@@ -111,4 +111,23 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="25dp"
         android:id="@+id/btnVideo" />
+
+    <Button
+        android:text="重力模式"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btngravity"
+        android:layout_alignBaseline="@+id/btnVideo"
+        android:layout_alignBottom="@+id/btnVideo"
+        android:layout_toRightOf="@+id/btnVideo"
+        android:layout_toEndOf="@+id/btnVideo" />
+
+    <Button
+        android:text="语音模式"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnVideo"
+        android:layout_alignLeft="@+id/btnVideo"
+        android:layout_alignStart="@+id/btnVideo"
+        android:id="@+id/btnSpeech" />
 </RelativeLayout>

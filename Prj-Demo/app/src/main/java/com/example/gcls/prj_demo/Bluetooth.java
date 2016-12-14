@@ -14,9 +14,10 @@ import android.widget.TextView;
 import android.app.Activity;
 import java.io.IOException;
 import java.util.UUID;
+import java.io.Serializable;
 
 
-public class BlueTooth extends Thread {
+public class BlueTooth extends Thread implements Serializable{
 
     private BluetoothAdapter adapter;
     private BluetoothSocket CarSocket;
@@ -28,11 +29,12 @@ public class BlueTooth extends Thread {
     private UUID uuid;
     //private Button goButton;
     public Button refreshButton;
+    private int iteration;
    // private boolean flagforrefresh=false;
 
     public BlueTooth(MainActivity main) {
         this.main = main;
-
+        iteration = 30;
        // Log.e("", "Refreshing");
         bluetoothList = (LinearLayout)main.findViewById(R.id.BluetoothList);
         bluetoothText = (TextView) main.findViewById(R.id.info);
@@ -141,5 +143,56 @@ public class BlueTooth extends Thread {
             e.printStackTrace();
         }
         bluetoothText.setText(" 发送信息失败");
+    }
+    public void TurnLeft()
+    {
+        try
+        {
+            for (int i = 0; i < iteration; ++i) {
+                sendInformation("2");
+            }
+            sendInformation("5");
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
+    public void TurnRight()
+    {
+        try
+        {
+            for (int i = 0; i < iteration; ++i) {
+                sendInformation("3");
+            }
+           sendInformation("5");
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
+    public void Forward()
+    {
+        try
+        {
+            sendInformation("1");
+            //sendInformation("5");
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
+    public void Backward()
+    {
+        try
+        {
+            sendInformation("4");
+            //sendInformation("5");
+        }
+        catch (Exception e)
+        {
+        }
     }
 }

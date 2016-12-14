@@ -30,23 +30,26 @@ import android.content.ComponentName;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Serializable {
     public Button ButtonBtConnect;
     public Intent IntentBtConnect;
     public static BluetoothSocket CarSocket;
-    public BlueTooth blueTooth;
+    static public BlueTooth blueTooth;
     public Button forwardBt;
     public Button backwardBt;
     public Button leftBt;
     public Button rightBt;
     public Button videoBt;
-
+    public Button gvtBt;
+    public Button speechBt;
+    public MainActivity main;
     public TextView tV;
     public static final int CAMERA_PORT = 8686;
     private ServerSocket cameraSocket;
@@ -76,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         blueTooth.start();
         ButtonBtConnect = (Button) findViewById(R.id.btnBtConnect);
         WifiInfo infowifi=  ((WifiManager)getSystemService(WIFI_SERVICE)).getConnectionInfo();
-
+        main = this;
         tV = (TextView)findViewById(R.id.info);
         int Ip = infowifi.getIpAddress();
         String strIp = "" + (Ip & 0xFF) + "." + ((Ip >> 8) & 0xFF) + "." + ((Ip >> 16) & 0xFF) + "." + ((Ip >> 24) & 0xFF);
@@ -98,27 +101,30 @@ public class MainActivity extends AppCompatActivity {
         rightBt = (Button)findViewById(R.id.Right);
         backwardBt = (Button)findViewById(R.id.Backward);
         videoBt = (Button)findViewById(R.id.btnVideo);
+        gvtBt = (Button)findViewById(R.id.btngravity);
+        speechBt = (Button)findViewById(R.id.btnSpeech);
+
         forwardBt.setOnClickListener(new Button.OnClickListener(){ // 点击forward按钮，蓝牙传输信息
             public  void onClick(View v){
-                blueTooth.sendInformation("1");
+                blueTooth.Forward();
             }
         });
 
         leftBt.setOnClickListener(new Button.OnClickListener(){ // 点击forward按钮，蓝牙传输信息
             public  void onClick(View v){
-                blueTooth.sendInformation("2");
+                blueTooth.TurnLeft();
 
             }});
 
         rightBt.setOnClickListener(new Button.OnClickListener(){ // 点击forward按钮，蓝牙传输信息
             public  void onClick(View v){
-                blueTooth.sendInformation("3");
+                blueTooth.TurnRight();
 
             }});
 
         backwardBt.setOnClickListener(new Button.OnClickListener(){ // 点击forward按钮，蓝牙传输信息
             public  void onClick(View v){
-                blueTooth.sendInformation("4");
+                blueTooth.Backward();
 
     }});
 
@@ -130,11 +136,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        gvtBt.setOnClickListener(new Button.OnClickListener(){
+            public  void onClick(View v){
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this,GravityActivity.class);
+                //intent.putExtra("main", main);
+                startActivity(intent);
+            }
+        });
 
+        speechBt.setOnClickListener(new Button.OnClickListener(){
+            public  void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this,SpeechActivity.class);
+                //intent.putExtra("blueTooth", blueTooth);
+                startActivity(intent);
+            }
+        });
 
 
 
     }
+
+
+
     class ReceiveVideo extends Thread{
 
         private int length = 0;

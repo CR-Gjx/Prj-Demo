@@ -2,4 +2,5 @@
     <string name="app_name">Prj-Demo</string>
     <string name="title_activity_camera">CameraActivity</string>
     <string name="title_activity_speech">SpeechActivity</string>
+    <string name="title_activity_gesture">GestureActivity</string>
 </resources>

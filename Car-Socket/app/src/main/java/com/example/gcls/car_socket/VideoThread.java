@@ -59,6 +59,7 @@ public class VideoThread extends Thread {
     int options = 60;
     int jishu = 0;
     int cishu = 0;
+    Thread th;
 
     //private String clientIP;
 
@@ -71,7 +72,7 @@ public class VideoThread extends Thread {
         if(Looper.myLooper() == null) {
             Looper.prepare();
         }
-        TestText = (TextView)main.findViewById(R.id.test);
+        //TestText = (TextView)main.findViewById(R.id.test);
         ButtonBegin = (Button)main.findViewById(R.id.Begin);
 
         surfaceHolder = ((SurfaceView) main.findViewById(R.id.surfaceView)).getHolder();
@@ -165,7 +166,7 @@ public class VideoThread extends Thread {
                             options -= 10;//每次都减少10
                         }
                         options = 10;
-                        Thread th = new SendVideoThread(outstream, ipname);
+                        th = new SendVideoThread(outstream, ipname);
                         th.start();
                         outstream.flush();
                     }
@@ -200,10 +201,10 @@ public class VideoThread extends Thread {
             try {
 
                 //byte data[] = new byte[204800];
-                InetAddress serverAddr = InetAddress.getByName("172.20.10.12");
+                InetAddress serverAddr = InetAddress.getByName(MainActivity.IPAddress);
                         //"10.189.35.89");// TCPServer.SERVERIP
                 Log.d("TCP", "C: Connecting...");
-
+                System.out.println(MainActivity.IPAddress);
 
 
                 // 应用Server的IP和端口建立Socket对象
@@ -228,7 +229,7 @@ public class VideoThread extends Thread {
             }
             catch(UnknownHostException e)
             {
-                Log.e("unknown", "192.168.1.100 is unkown server!");
+                Log.e("unknown", MainActivity.IPAddress + "is unkown server!");
             }
             catch(Exception e)
             {

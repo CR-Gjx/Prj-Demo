@@ -13,6 +13,8 @@ import java.util.Enumeration;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.TextView;
+import android.widget.EditText;
+
 
 public class MainActivity extends AppCompatActivity {
     public String clientIP = "df";
@@ -21,21 +23,30 @@ public class MainActivity extends AppCompatActivity {
     public VideoThread videoThread = null;
     public  Button CameraButton = null;
     TextView testText;
-
+    EditText editText;
+    static  String IPAddress = "";
+    MainActivity Main;
+    int flag = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         CameraButton = (Button)findViewById(R.id.Begin);
-        testText = (TextView)findViewById(R.id.test);
-//        CameraButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-        videoThread = new VideoThread(this);
-        videoThread.start();
+        Main = this;
+        //testText = (TextView)findViewById(R.id.test);
+        editText = (EditText)findViewById(R.id.editText);
+        CameraButton.setOnClickListener(new Button.OnClickListener(){ // 点击forward按钮，蓝牙传输信息
+            public  void onClick(View v){
+                IPAddress = editText.getText().toString();
+                BeginCamera();
+            }
+        });
+
+//        videoThread = new VideoThread(Main);
+//        videoThread.start();
+
+
+
     }
 
     /**
@@ -44,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
      * @param context
      * @return
      */
+    public void BeginCamera()
+    {
+        videoThread = new VideoThread(Main);
+        videoThread.start();
+        System.out.println(IPAddress);
+    }
+
     protected static String getImei(Context context) {
         String mImei = "NULL";
         try {

@@ -10,11 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.gcls.car_socket.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-
     <SurfaceView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,23 +21,25 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="请输入IP地址："
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <Button
         android:text="开始传输"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Begin"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignBaseline="@+id/editText"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="26dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginBottom="11dp"
-        android:id="@+id/test" />
 </RelativeLayout>

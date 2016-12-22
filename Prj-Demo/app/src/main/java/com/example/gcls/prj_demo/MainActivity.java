@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     public Button videoBt;
     public Button gvtBt;
     public Button speechBt;
+    public Button gestureBt;
     public MainActivity main;
     public TextView tV;
     public static final int CAMERA_PORT = 8686;
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         videoBt = (Button)findViewById(R.id.btnVideo);
         gvtBt = (Button)findViewById(R.id.btngravity);
         speechBt = (Button)findViewById(R.id.btnSpeech);
+        gestureBt = (Button)findViewById(R.id.btnGesture);
 
         forwardBt.setOnClickListener(new Button.OnClickListener(){ // 点击forward按钮，蓝牙传输信息
             public  void onClick(View v){
@@ -153,6 +155,15 @@ public class MainActivity extends AppCompatActivity implements Serializable {
                 startActivity(intent);
             }
         });
+        gestureBt.setOnClickListener(new Button.OnClickListener(){
+            public  void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this,GestureActivity.class);
+                //intent.putExtra("blueTooth", blueTooth);
+                startActivity(intent);
+            }
+        });
+
 
 
 

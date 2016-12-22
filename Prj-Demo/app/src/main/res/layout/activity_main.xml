@@ -69,38 +69,6 @@
         android:layout_alignStart="@+id/btnBtConnect" />
 
     <Button
-        android:text="Backward"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Backward"
-        android:layout_marginTop="27dp"
-        android:layout_below="@+id/Right"
-        android:layout_alignLeft="@+id/forward"
-        android:layout_alignStart="@+id/forward"
-        android:layout_alignRight="@+id/forward"
-        android:layout_alignEnd="@+id/forward" />
-
-    <Button
-        android:text="TurnLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Left"
-        android:layout_alignBaseline="@+id/Right"
-        android:layout_alignBottom="@+id/Right"
-        android:layout_alignRight="@+id/testText"
-        android:layout_alignEnd="@+id/testText" />
-
-    <Button
-        android:text="forward"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/forward"
-        android:layout_marginTop="27dp"
-        android:layout_below="@+id/btnBtConnect"
-        android:layout_toRightOf="@+id/text2"
-        android:layout_toEndOf="@+id/text2" />
-
-    <Button
         android:text="视频传输"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -130,4 +98,42 @@
         android:layout_alignLeft="@+id/btnVideo"
         android:layout_alignStart="@+id/btnVideo"
         android:id="@+id/btnSpeech" />
+
+    <Button
+        android:text="手势模式"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGesture"
+        android:layout_below="@+id/btngravity"
+        android:layout_toRightOf="@+id/btnVideo"
+        android:layout_toEndOf="@+id/btnVideo" />
+
+    <Button
+        android:text="Backward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Backward"
+        android:layout_below="@+id/Right"
+        android:layout_alignLeft="@+id/forward"
+        android:layout_alignStart="@+id/forward" />
+
+    <Button
+        android:text="forward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/forward"
+        android:layout_above="@+id/Right"
+        android:layout_toRightOf="@+id/text2"
+        android:layout_toEndOf="@+id/text2"
+        android:layout_marginBottom="23dp" />
+
+    <Button
+        android:text="TurnLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Left"
+        android:layout_below="@+id/forward"
+        android:layout_alignRight="@+id/testText"
+        android:layout_alignEnd="@+id/testText" />
+
 </RelativeLayout>

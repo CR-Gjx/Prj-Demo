@@ -3,4 +3,7 @@
     <string name="title_activity_camera">CameraActivity</string>
     <string name="title_activity_speech">SpeechActivity</string>
     <string name="title_activity_gesture">GestureActivity</string>
+    <string name="title_activity_face">FaceActivity</string>
+    <color name="load_text_color">#ffffffff</color>
+    <string name="title_activity_verify_face_actibity">VerifyFaceActibity</string>
 </resources>

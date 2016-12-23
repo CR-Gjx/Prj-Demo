@@ -136,4 +136,13 @@
         android:layout_alignRight="@+id/testText"
         android:layout_alignEnd="@+id/testText" />
 
+    <Button
+        android:text="人脸检测"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnFace"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btnSpeech"
+        android:layout_alignStart="@+id/btnSpeech" />
+
 </RelativeLayout>

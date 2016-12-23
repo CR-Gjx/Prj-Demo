@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff"
+    tools:context="com.megvii.landmarklib.MainActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:background="#ffffffff" >
+
+        <TextView
+            android:id="@+id/picture_item_nameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="140dip"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="name"
+            android:textColor="#aa000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/picture_item_timeText"
+            android:layout_width="60dip"
+            android:layout_height="wrap_content"
+            android:gravity="right" 
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="time"
+            android:textColor="#aa000000"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/picture_item_numText"
+            android:layout_width="70dip"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="right"
+            android:layout_toLeftOf="@+id/picture_item_timeText"
+            android:text="num"
+            android:textColor="#aa000000"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

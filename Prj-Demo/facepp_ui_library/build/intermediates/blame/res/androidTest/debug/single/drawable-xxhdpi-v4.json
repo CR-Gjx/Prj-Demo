@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\icon.png",
+        "source": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\icon.png"
+    },
+    {
+        "merged": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\loading_background.png",
+        "source": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\loading_background.png"
+    },
+    {
+        "merged": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\fpplogo.png",
+        "source": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\fpplogo.png"
+    }
+]

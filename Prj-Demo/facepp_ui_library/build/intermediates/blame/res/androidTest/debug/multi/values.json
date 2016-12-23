@@ -1,0 +1,182 @@
+[
+    {
+        "outputFile": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 8,
+                    "endColumn": 19,
+                    "endOffset": 242
+                },
+                "from": {
+                    "file": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 8,
+                        "endColumn": 19,
+                        "endOffset": 242
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 390,
+                    "endColumn": 57,
+                    "endOffset": 443
+                },
+                "from": {
+                    "file": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 390,
+                        "endColumn": 57,
+                        "endOffset": 443
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 448,
+                    "endColumn": 55,
+                    "endOffset": 499
+                },
+                "from": {
+                    "file": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 448,
+                        "endColumn": 55,
+                        "endOffset": 499
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 504,
+                    "endColumn": 47,
+                    "endOffset": 547
+                },
+                "from": {
+                    "file": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 504,
+                        "endColumn": 47,
+                        "endOffset": 547
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 552,
+                    "endColumn": 52,
+                    "endOffset": 600
+                },
+                "from": {
+                    "file": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 552,
+                        "endColumn": 52,
+                        "endOffset": 600
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 605,
+                    "endColumn": 52,
+                    "endOffset": 653
+                },
+                "from": {
+                    "file": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 605,
+                        "endColumn": 52,
+                        "endOffset": 653
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 658,
+                    "endColumn": 52,
+                    "endOffset": 706
+                },
+                "from": {
+                    "file": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 658,
+                        "endColumn": 52,
+                        "endOffset": 706
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 711,
+                    "endColumn": 80,
+                    "endOffset": 787
+                },
+                "from": {
+                    "file": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 711,
+                        "endColumn": 80,
+                        "endOffset": 787
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 792,
+                    "endLine": 19,
+                    "endColumn": 12,
+                    "endOffset": 947
+                },
+                "from": {
+                    "file": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 792,
+                        "endLine": 19,
+                        "endColumn": 12,
+                        "endOffset": 947
+                    }
+                }
+            }
+        ]
+    }
+]

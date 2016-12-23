@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff"
+    android:paddingLeft="15dip"
+    android:paddingRight="15dip"
+    android:paddingTop="15dip"
+    tools:context="com.megvii.landmarklib.MainActivity" >
+
+    <TextView
+        android:id="@+id/picture_layout_fileText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择的文件夹"
+        android:textColor="#aa000000"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/picture_layout_pictureNumText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/picture_layout_fileText"
+        android:layout_marginTop="15dip"
+        android:text="图片数量：0"
+        android:textColor="#aa000000"
+        android:textSize="16sp" />
+
+    <ProgressBar
+        android:id="@+id/picture_layout_pictureNumBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="5dip"
+        android:layout_below="@+id/picture_layout_pictureNumText"
+        android:layout_marginTop="2dip"
+        android:progressDrawable="@drawable/progress_horizontal"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/picture_layout_scanNumText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/picture_layout_pictureNumBar"
+        android:layout_marginTop="15dip"
+        android:text="识别完图片数量：0"
+        android:textColor="#aa000000"
+        android:textSize="16sp" />
+
+    <ProgressBar
+        android:id="@+id/picture_layout_scanNumBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="5dip"
+        android:layout_below="@+id/picture_layout_scanNumText"
+        android:layout_marginTop="2dip"
+        android:progressDrawable="@drawable/progress_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/picture_layout_scanNumBar"
+        android:layout_marginTop="15dip"
+        android:text="只计算landmark的时间"
+        android:textColor="#aa000000"
+        android:textSize="14sp" />
+
+    <ListView
+        android:id="@+id/picture_layout_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/picture_layout_selectFileBtn"
+        android:layout_below="@+id/picture_layout_scanNumBar"
+        android:layout_marginBottom="25dip"
+        android:layout_marginTop="35dip"
+        android:cacheColorHint="#00000000"
+        android:divider="#aa000000"
+        android:dividerHeight="1px" >
+    </ListView>
+
+    <Button
+        android:id="@+id/picture_layout_selectFileBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dip"
+        android:layout_marginLeft="45dip"
+        android:layout_marginRight="45dip"
+        android:background="@drawable/bg_button0_select"
+        android:text="选择文件夹"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/picture_layout_scanBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dip"
+        android:layout_marginLeft="45dip"
+        android:layout_marginRight="45dip"
+        android:text="开始扫描"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

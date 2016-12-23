@@ -3,6 +3,8 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.3"
+    useLibrary 'org.apache.http.legacy'
+
     defaultConfig {
         applicationId "com.example.gcls.prj_demo"
         minSdkVersion 15
@@ -26,5 +28,10 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
+    //compile project(':demo_project')
+    compile project(':facepp_ui_library')
+    compile files('libs/megvii-facepp-0.2.0.jar')
+    compile files('libs/android-async-http-1.4.6.jar')
+    compile files('libs/megvii-license-manager-0.2.0.jar')
     testCompile 'junit:junit:4.12'
 }

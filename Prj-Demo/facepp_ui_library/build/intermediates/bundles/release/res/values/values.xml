@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="plantes">  
+        <item>NOKIA</item>  
+        <item>MOTO</item>  
+        <item>HTC</item>  
+        <item>LG</item>  
+        <item>其他</item>  
+    </string-array>
+    <declare-styleable name="AutoRatioImageView"><attr format="float" name="ratio"/><attr format="integer" name="prefer"/></declare-styleable>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="load_text_width">135dp</dimen>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">Face++ LDK Demo</string>
+    <string name="hello_world">Hello world!</string>
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar"/>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>

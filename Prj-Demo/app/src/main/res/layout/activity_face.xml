@@ -1,0 +1,339 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loading_layout_rootRel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loading_background"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context="com.example.gcls.prj_demo.FaceActivity" >
+
+    <RelativeLayout
+        android:id="@+id/loading_layout_contentRel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" >
+
+        <Button
+            android:id="@+id/load_layout_intoBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="60dip"
+            android:layout_marginLeft="45dip"
+            android:layout_marginRight="45dip"
+            android:background="@drawable/bg_button0_select"
+            android:text="实时人脸检测"
+            android:textColor="#ffffffff"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/load_layout_intoPictureBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="60dip"
+            android:layout_marginLeft="45dip"
+            android:layout_marginRight="45dip"
+            android:background="@drawable/bg_button0_select"
+            android:text="Landmark (picture mode)"
+            android:textColor="#ffffffff"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/loading_content_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="330dip"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dip"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/load_layout_cameraBtnLinear"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="@dimen/load_text_width"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="摄像头选择:"
+                    android:textColor="@color/load_text_color"
+                    android:textSize="16sp" />
+
+                <ToggleButton
+                    android:id="@+id/load_layout_cameraBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textOff="前置"
+                    android:textOn="后置" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/load_layout_recorderBtnLinear"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="@dimen/load_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="是否录制视频:"
+                    android:textColor="@color/load_text_color"
+                    android:textSize="16sp" />
+
+                <ToggleButton
+                    android:id="@+id/load_layout_recorderBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textOff="关"
+                    android:textOn="开" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/load_layout_debugBtnLinear"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="@dimen/load_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="调试信息:"
+                    android:textColor="@color/load_text_color"
+                    android:textSize="16sp" />
+
+                <ToggleButton
+                    android:id="@+id/load_layout_debugBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textOff="关"
+                    android:textOn="开" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/load_layout_TopDetectBtnLinear"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="@dimen/load_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="区域检测:"
+                    android:textColor="@color/load_text_color"
+                    android:textSize="16sp" />
+
+                <ToggleButton
+                    android:id="@+id/load_layout_TopDetectBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textOff="关"
+                    android:textOn="开" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/load_layout_facePropertyBtnLinear"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="@dimen/load_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="人脸属性检测:"
+                    android:textColor="@color/load_text_color"
+                    android:textSize="16sp" />
+
+                <ToggleButton
+                    android:id="@+id/load_layout_facePropertyBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textOff="关"
+                    android:textOn="开" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/load_layout_pointNumBtnLinear"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="@dimen/load_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="关键点数:"
+                    android:textColor="@color/load_text_color"
+                    android:textSize="16sp" />
+
+                <ToggleButton
+                    android:id="@+id/load_layout_pointNumBtnBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textOff="81"
+                    android:textOn="106" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/load_layout_resolutionLinear"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:focusable="false"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="@dimen/load_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="分辨率:"
+                    android:textColor="@color/load_text_color"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/load_layout_resolutionEdit"
+                    android:layout_width="90dip"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="0dip"
+                    android:paddingRight="0dip"
+                    android:text="1980*720"
+                    android:gravity="center"
+                    android:textColor="@color/load_text_color"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/load_layout_faceSizeLinear"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="@dimen/load_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="最小检测脸:"
+                    android:textColor="@color/load_text_color"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/load_layout_faceSizeEdit"
+                    android:layout_width="90dip"
+                    android:layout_height="wrap_content"
+                    android:text="200"
+                    android:gravity="left"
+                    android:paddingLeft="15dip"
+                    android:textColor="@color/load_text_color"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/load_layout_intervalLinear"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="@dimen/load_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="检测间隔:"
+                    android:textColor="@color/load_text_color"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/load_layout_intervalEdit"
+                    android:layout_width="90dip"
+                    android:layout_height="wrap_content"
+                    android:text="25"
+                    android:gravity="left"
+                    android:paddingLeft="15dip"
+                    android:textColor="@color/load_text_color"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/loading_layout_listRel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#66000000"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone" >
+
+            <ListView
+                android:id="@+id/loading_layout_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="85dip"
+                android:layout_marginLeft="35dip"
+                android:layout_marginRight="35dip"
+                android:layout_marginTop="85dip"
+                android:background="#ffffffff"
+                android:cacheColorHint="#00000000"
+                android:divider="#aa000000"
+                android:dividerHeight="1px" >
+            </ListView>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/loading_layout_barLinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/loading_layout_WarrantyBar"
+            android:layout_width="30dip"
+            android:layout_height="30dip" />
+
+        <TextView
+            android:id="@+id/loading_layout_WarrantyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dip"
+            android:layout_marginTop="10dip"
+            android:text="正在联网授权中..."
+            android:textColor="#4FA1B7"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/loading_layout_againWarrantyBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_below="@+id/loading_layout_barLinear"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="45dip"
+        android:layout_marginRight="45dip"
+        android:layout_marginTop="120dip"
+        android:background="@drawable/bg_button0_select"
+        android:text="重新联网授权"
+        android:textColor="#ffffffff"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

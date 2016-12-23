@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\cameralist_item.xml",
+        "source": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\layout\\cameralist_item.xml"
+    },
+    {
+        "merged": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\picture_item.xml",
+        "source": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\layout\\picture_item.xml"
+    },
+    {
+        "merged": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\activity_opengl.xml",
+        "source": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\layout\\activity_opengl.xml"
+    },
+    {
+        "merged": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\picture_layout.xml",
+        "source": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\layout\\picture_layout.xml"
+    },
+    {
+        "merged": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\loading_layout.xml",
+        "source": "E:\\3C\\WorkingSet\\Prj-Demo\\facepp_ui_library\\build\\intermediates\\bundles\\debug\\res\\layout\\loading_layout.xml"
+    }
+]

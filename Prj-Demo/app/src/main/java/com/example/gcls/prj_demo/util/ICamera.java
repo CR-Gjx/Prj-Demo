@@ -1,12 +1,5 @@
 package com.example.gcls.prj_demo.util;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,6 +13,14 @@ import android.util.Log;
 import android.view.Surface;
 import android.widget.RelativeLayout;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * 照相机工具类
  */
@@ -29,8 +30,7 @@ public class ICamera {
 	public int cameraWidth;
 	public int cameraHeight;
 	public int cameraId = 1;// 前置摄像头
-	public int displayOrientation;
-	public int orientation = 0;
+	public int Angle;
 
 	public ICamera() {
 	}
@@ -65,16 +65,14 @@ public class ICamera {
 			cameraWidth = bestPreviewSize.width;
 			cameraHeight = bestPreviewSize.height;
 			params.setPreviewSize(cameraWidth, cameraHeight);
-			displayOrientation = getCameraDisplayOrientation(activity);
-			mCamera.setDisplayOrientation(displayOrientation);
+			Angle = getCameraAngle(activity);
+			Log.w("ceshi", "Angle==" + Angle);
+			// mCamera.setDisplayOrientation(Angle);
 			mCamera.setParameters(params);
-			if (cameraId == 1) {
-				orientation = 360 - displayOrientation;
-			} else
-				orientation = displayOrientation;
 			return mCamera;
 		} catch (Exception e) {
 			e.printStackTrace();
+            System.out.println("shibai");
 			return null;
 		}
 	}
@@ -148,6 +146,8 @@ public class ICamera {
 			}
 
 		} catch (Exception e) {
+				Log.e("df", "failed to open Camera");
+				e.printStackTrace();
 			e.printStackTrace();
 		} finally {
 			if (camera != null) {
@@ -240,16 +240,12 @@ public class ICamera {
 	/**
 	 * 获取照相机旋转角度
 	 */
-	private int getCameraDisplayOrientation(Activity activity) {
+	public int getCameraAngle(Activity activity) {
 		int rotateAngle = 90;
 		CameraInfo info = new CameraInfo();
-		CameraInfo info2 = new CameraInfo();
 		Camera.getCameraInfo(cameraId, info);
-		Camera.getCameraInfo(0, info2);
 		int rotation = activity.getWindowManager().getDefaultDisplay()
 				.getRotation();
-
-		//Log.e("Camera", "degree " + rotation + ", camera_front " + info.orientation + ", camera_back " + info2.orientation);
 		int degrees = 0;
 		switch (rotation) {
 		case Surface.ROTATION_0:

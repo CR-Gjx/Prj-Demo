@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     public Button gvtBt;
     public Button speechBt;
     public Button gestureBt;
+    public Button faceBt;
     public MainActivity main;
     public TextView tV;
     public static final int CAMERA_PORT = 8686;
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         gvtBt = (Button)findViewById(R.id.btngravity);
         speechBt = (Button)findViewById(R.id.btnSpeech);
         gestureBt = (Button)findViewById(R.id.btnGesture);
+        faceBt = (Button)findViewById(R.id.btnFace);
 
         forwardBt.setOnClickListener(new Button.OnClickListener(){ // 点击forward按钮，蓝牙传输信息
             public  void onClick(View v){
@@ -159,6 +161,30 @@ public class MainActivity extends AppCompatActivity implements Serializable {
             public  void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this,GestureActivity.class);
+                //intent.putExtra("blueTooth", blueTooth);
+                startActivity(intent);
+            }
+        });
+
+        faceBt.setOnClickListener(new Button.OnClickListener(){
+            public  void onClick(View v) {
+//                ComponentName componetName = new ComponentName(
+//                        //这个是另外一个应用程序的包名
+//                        "com.megvii.awesomedemo.facepp",
+//                        //这个参数是要启动的Activity
+//                        "com.megvii.landmarkproject.LoadingActivity");
+//
+//                try {
+//                    Intent intent = new Intent();
+//                    intent.setComponent(componetName);
+//                    startActivity(intent);
+//                } catch (Exception e) {
+////				Toast.makeText(getApplicationContext(), "可以在这里提示用户没有找到应用程序，或者是做其他的操作！", 0).show();
+//
+//                }
+
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this,FaceActivity.class);
                 //intent.putExtra("blueTooth", blueTooth);
                 startActivity(intent);
             }

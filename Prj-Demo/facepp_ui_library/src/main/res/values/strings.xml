@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="plantes">  
+        <item>NOKIA</item>  
+        <item>MOTO</item>  
+        <item>HTC</item>  
+        <item>LG</item>  
+        <item>其他</item>  
+    </string-array> 
+    
+    <string name="app_name">Face++ LDK Demo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

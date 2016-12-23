@@ -1,1 +1,2 @@
 include ':app'
+include ':facepp_ui_library'
